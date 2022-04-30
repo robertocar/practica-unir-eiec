@@ -5,10 +5,13 @@ Organization: UNIR
 
 import os
 import sys
+#require de la instalacion de python3 -m pip install deep_translator
+from deep_translator import GoogleTranslator
 
 DEFAULT_FILENAME = "words.txt"
 DEFAULT_DUPLICATES = False
-
+#traduccion de español a ingles
+traductor = GoogleTranslator(source='es', target='en')
 
 def sort_list(items, ascending=True):
     if not isinstance(items, list):
@@ -46,4 +49,4 @@ if __name__ == "__main__":
     if remove_duplicates:
         word_list = remove_duplicates_from_list(word_list)
 
-    print(sort_list(word_list))
+    print(traductor.translate_batch(sort_list(word_list)))
